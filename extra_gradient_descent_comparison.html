@@ -3,34 +3,34 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | hands-on-ml2-notebooks</title>
+<title>Comparison of Batch, Mini-Batch and Stochastic Gradient Descent | hands-on-ml2-notebooks</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Comparison of Batch, Mini-Batch and Stochastic Gradient Descent" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="summary" />
-<meta property="og:description" content="summary" />
-<link rel="canonical" href="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html" />
-<meta property="og:url" content="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html" />
+<meta name="description" content="Supplementary material on Gradient Descent" />
+<meta property="og:description" content="Supplementary material on Gradient Descent" />
+<link rel="canonical" href="https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison" />
+<meta property="og:url" content="https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison" />
 <meta property="og:site_name" content="hands-on-ml2-notebooks" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-09T00:00:00-05:00" />
 <script type="application/ld+json">
-{"headline":"Title","dateModified":"2020-03-09T00:00:00-05:00","description":"summary","datePublished":"2020-03-09T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html"},"url":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html","@context":"https://schema.org"}</script>
+{"headline":"Comparison of Batch, Mini-Batch and Stochastic Gradient Descent","dateModified":"2020-03-09T00:00:00-05:00","description":"Supplementary material on Gradient Descent","datePublished":"2020-03-09T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison"},"url":"https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/hands-on-ml2/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://machine-learning-apps.github.io/hands-on-ml2/feed.xml" title="hands-on-ml2-notebooks" /><link rel="shortcut icon" type="image/x-icon" href="/hands-on-ml2/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | hands-on-ml2-notebooks</title>
+<title>Comparison of Batch, Mini-Batch and Stochastic Gradient Descent | hands-on-ml2-notebooks</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Comparison of Batch, Mini-Batch and Stochastic Gradient Descent" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="summary" />
-<meta property="og:description" content="summary" />
-<link rel="canonical" href="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html" />
-<meta property="og:url" content="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html" />
+<meta name="description" content="Supplementary material on Gradient Descent" />
+<meta property="og:description" content="Supplementary material on Gradient Descent" />
+<link rel="canonical" href="https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison" />
+<meta property="og:url" content="https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison" />
 <meta property="og:site_name" content="hands-on-ml2-notebooks" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-09T00:00:00-05:00" />
 <script type="application/ld+json">
-{"headline":"Title","dateModified":"2020-03-09T00:00:00-05:00","description":"summary","datePublished":"2020-03-09T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html"},"url":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html","@context":"https://schema.org"}</script>
+{"headline":"Comparison of Batch, Mini-Batch and Stochastic Gradient Descent","dateModified":"2020-03-09T00:00:00-05:00","description":"Supplementary material on Gradient Descent","datePublished":"2020-03-09T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison"},"url":"https://machine-learning-apps.github.io/hands-on-ml2/extra_gradient_descent_comparison","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -104,7 +104,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="page-description">summary</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-09T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent</h1><p class="page-description">Supplementary material on Gradient Descent</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-09T00:00:00-05:00" itemprop="datePublished">
         Mar 9, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -149,15 +149,6 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Comparison-of-Batch,-Mini-Batch-and-Stochastic-Gradient-Descent">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent<a class="anchor-link" href="#Comparison-of-Batch,-Mini-Batch-and-Stochastic-Gradient-Descent"> </a></h1><ul>
-<li>permalink: /extra_gradient_descent_comparison</li>
-</ul>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This notebook displays an animation comparing Batch, Mini-Batch and Stochastic Gradient Descent (introduced in Chapter 4). Thanks to <a href="https://github.com/daniel-s-ingram">Daniel Ingram</a> who contributed this notebook.</p>
@@ -429,10 +420,10 @@ window.onload = wrap_img;
 
 
 
-<div id="5e880c53-bd74-4cf9-bf0d-9430002cae3b"></div>
+<div id="0795fef3-968b-4382-9f4b-a38146fd4975"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#5e880c53-bd74-4cf9-bf0d-9430002cae3b');
+var element = $('#0795fef3-968b-4382-9f4b-a38146fd4975');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -1301,7 +1292,7 @@ if (IPython.notebook.kernel != null) {
 
 
 
-  </div><a class="u-url" href="/hands-on-ml2/2020/03/09/extra_gradient_descent_comparison.html" hidden></a>
+  </div><a class="u-url" href="/hands-on-ml2/extra_gradient_descent_comparison" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
