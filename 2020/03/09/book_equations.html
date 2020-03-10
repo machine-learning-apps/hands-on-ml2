@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | hands-on-ml2-notebooks</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="summary" />
+<meta property="og:description" content="summary" />
+<link rel="canonical" href="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html" />
+<meta property="og:url" content="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html" />
+<meta property="og:site_name" content="hands-on-ml2-notebooks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Title","dateModified":"2020-03-09T00:00:00-05:00","description":"summary","datePublished":"2020-03-09T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html"},"url":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/hands-on-ml2/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://machine-learning-apps.github.io/hands-on-ml2/feed.xml" title="hands-on-ml2-notebooks" /><link rel="shortcut icon" type="image/x-icon" href="/hands-on-ml2/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | hands-on-ml2-notebooks</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="summary" />
+<meta property="og:description" content="summary" />
+<link rel="canonical" href="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html" />
+<meta property="og:url" content="https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html" />
+<meta property="og:site_name" content="hands-on-ml2-notebooks" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Title","dateModified":"2020-03-09T00:00:00-05:00","description":"summary","datePublished":"2020-03-09T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html"},"url":"https://machine-learning-apps.github.io/hands-on-ml2/2020/03/09/book_equations.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://machine-learning-apps.github.io/hands-on-ml2/feed.xml" title="hands-on-ml2-notebooks" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    // remove paragraph tags in rendered toc (happens from notebooks)
+    var toctags = document.querySelectorAll(".toc-entry")
+    toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/hands-on-ml2/">hands-on-ml2-notebooks</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/hands-on-ml2/search/">Search</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="page-description">summary</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-09T00:00:00-05:00" itemprop="datePublished">
+        Mar 9, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      21 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/machine-learning-apps/hands-on-ml2/tree/master/_notebooks/book_equations.ipynb" role="button">
+<img class="notebook-badge-image" src="/hands-on-ml2/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div><div class="px-2">
+    <a href="https://colab.research.google.com/github/machine-learning-apps/hands-on-ml2/blob/master/_notebooks/book_equations.ipynb">
+        <img class="notebook-badge-image" src="/hands-on-ml2/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/book_equations.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Equations">Equations<a class="anchor-link" href="#Equations"> </a></h1><ul>
+<li>permalink: /book_equations</li>
+</ul>
+<p><em>This notebook lists all the equations in the book. If you decide to print them on a T-Shirt, I definitely want a copy! ;-)</em></p>
+<p><strong>Warning</strong>: GitHub's notebook viewer does not render equations properly. You should either view this notebook within Jupyter itself or use <a href="http://nbviewer.jupyter.org/github/ageron/handson-ml/blob/master/book_equations.ipynb">Jupyter's online viewer</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-1">Chapter 1<a class="anchor-link" href="#Chapter-1"> </a></h1><p><strong>Equation 1-1: A simple linear model</strong></p>
+<p>$
+\text{life_satisfaction} = \theta_0 + \theta_1 \times \text{GDP_per_capita}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-2">Chapter 2<a class="anchor-link" href="#Chapter-2"> </a></h1><p><strong>Equation 2-1: Root Mean Square Error (RMSE)</strong></p>
+<p>$
+\text{RMSE}(\mathbf{X}, h) = \sqrt{\frac{1}{m}\sum\limits_{i=1}^{m}\left(h(\mathbf{x}^{(i)}) - y^{(i)}\right)^2}
+$</p>
+<p><strong>Notations (page 38):</strong></p>
+<p>$
+  \mathbf{x}^{(1)} = \begin{pmatrix}
+  -118.29 \\
+  33.91 \\
+  1,416 \\
+  38,372
+  \end{pmatrix}
+$</p>
+<p>$
+  y^{(1)}=156,400
+$</p>
+<p>$
+  \mathbf{X} = \begin{pmatrix}
+  (\mathbf{x}^{(1)})^T \\
+  (\mathbf{x}^{(2)})^T\\
+  \vdots \\
+  (\mathbf{x}^{(1999)})^T \\
+  (\mathbf{x}^{(2000)})^T
+  \end{pmatrix} = \begin{pmatrix}
+  -118.29 &amp; 33.91 &amp; 1,416 &amp; 38,372 \\
+  \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+  \end{pmatrix}
+$</p>
+<p><strong>Equation 2-2: Mean Absolute Error</strong></p>
+<p>$
+\text{MAE}(\mathbf{X}, h) = \frac{1}{m}\sum\limits_{i=1}^{m}\left| h(\mathbf{x}^{(i)}) - y^{(i)} \right|
+$</p>
+<p><strong>$\ell_k$ norms (page 39):</strong></p>
+<p>$ \left\| \mathbf{v} \right\| _k = (\left| v_0 \right|^k + \left| v_1 \right|^k + \dots + \left| v_n \right|^k)^{\frac{1}{k}} $</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-3">Chapter 3<a class="anchor-link" href="#Chapter-3"> </a></h1><p><strong>Equation 3-1: Precision</strong></p>
+<p>$
+\text{precision} = \cfrac{TP}{TP + FP}
+$</p>
+<p><strong>Equation 3-2: Recall</strong></p>
+<p>$
+\text{recall} = \cfrac{TP}{TP + FN}
+$</p>
+<p><strong>Equation 3-3: $F_1$ score</strong></p>
+<p>$
+F_1 = \cfrac{2}{\cfrac{1}{\text{precision}} + \cfrac{1}{\text{recall}}} = 2 \times \cfrac{\text{precision}\, \times \, \text{recall}}{\text{precision}\, + \, \text{recall}} = \cfrac{TP}{TP + \cfrac{FN + FP}{2}}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-4">Chapter 4<a class="anchor-link" href="#Chapter-4"> </a></h1><p><strong>Equation 4-1: Linear Regression model prediction</strong></p>
+<p>$
+\hat{y} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n
+$</p>
+<p><strong>Equation 4-2: Linear Regression model prediction (vectorized form)</strong></p>
+<p>$
+\hat{y} = h_{\boldsymbol{\theta}}(\mathbf{x}) = \boldsymbol{\theta} \cdot \mathbf{x}
+$</p>
+<p><strong>Equation 4-3: MSE cost function for a Linear Regression model</strong></p>
+<p>$
+\text{MSE}(\mathbf{X}, h_{\boldsymbol{\theta}}) = \dfrac{1}{m} \sum\limits_{i=1}^{m}{(\boldsymbol{\theta}^T \mathbf{x}^{(i)} - y^{(i)})^2}
+$</p>
+<p><strong>Equation 4-4: Normal Equation</strong></p>
+<p>$
+\hat{\boldsymbol{\theta}} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}
+$</p>
+<p><strong> Partial derivatives notation (page 114):</strong></p>
+<p>$\frac{\partial}{\partial \theta_j} \text{MSE}(\boldsymbol{\theta})$</p>
+<p><strong>Equation 4-5: Partial derivatives of the cost function</strong></p>
+<p>$
+\dfrac{\partial}{\partial \theta_j} \text{MSE}(\boldsymbol{\theta}) = \dfrac{2}{m}\sum\limits_{i=1}^{m}(\boldsymbol{\theta}^T \mathbf{x}^{(i)} - y^{(i)})\, x_j^{(i)}
+$</p>
+<p><strong>Equation 4-6: Gradient vector of the cost function</strong></p>
+<p>$
+\nabla_{\boldsymbol{\theta}}\, \text{MSE}(\boldsymbol{\theta}) =
+\begin{pmatrix}
+ \frac{\partial}{\partial \theta_0} \text{MSE}(\boldsymbol{\theta}) \\
+ \frac{\partial}{\partial \theta_1} \text{MSE}(\boldsymbol{\theta}) \\
+ \vdots \\
+ \frac{\partial}{\partial \theta_n} \text{MSE}(\boldsymbol{\theta})
+\end{pmatrix}
+ = \dfrac{2}{m} \mathbf{X}^T (\mathbf{X} \boldsymbol{\theta} - \mathbf{y})
+$</p>
+<p><strong>Equation 4-7: Gradient Descent step</strong></p>
+<p>$
+\boldsymbol{\theta}^{(\text{next step})} = \boldsymbol{\theta} - \eta \nabla_{\boldsymbol{\theta}}\, \text{MSE}(\boldsymbol{\theta})
+$</p>
+<p>$ O(\frac{1}{\text{iterations}}) $</p>
+<p>$ \hat{y} = 0.56 x_1^2 + 0.93 x_1 + 1.78 $</p>
+<p>$ y = 0.5 x_1^2 + 1.0 x_1 + 2.0 + \text{Gaussian noise} $</p>
+<p>$ \dfrac{(n+d)!}{d!\,n!} $</p>
+<p>$ \alpha \sum_{i=1}^{n}{{\theta_i}^2}$</p>
+<p><strong>Equation 4-8: Ridge Regression cost function</strong></p>
+<p>$
+J(\boldsymbol{\theta}) = \text{MSE}(\boldsymbol{\theta}) + \alpha \dfrac{1}{2}\sum\limits_{i=1}^{n}{\theta_i}^2
+$</p>
+<p><strong>Equation 4-9: Ridge Regression closed-form solution</strong></p>
+<p>$
+\hat{\boldsymbol{\theta}} = (\mathbf{X}^T \mathbf{X} + \alpha \mathbf{A})^{-1} \mathbf{X}^T \mathbf{y}
+$</p>
+<p><strong>Equation 4-10: Lasso Regression cost function</strong></p>
+<p>$
+J(\boldsymbol{\theta}) = \text{MSE}(\boldsymbol{\theta}) + \alpha \sum\limits_{i=1}^{n}\left| \theta_i \right|
+$</p>
+<p><strong>Equation 4-11: Lasso Regression subgradient vector</strong></p>
+<p>$
+g(\boldsymbol{\theta}, J) = \nabla_{\boldsymbol{\theta}}\, \text{MSE}(\boldsymbol{\theta}) + \alpha
+\begin{pmatrix}
+  \operatorname{sign}(\theta_1) \\
+  \operatorname{sign}(\theta_2) \\
+  \vdots \\
+  \operatorname{sign}(\theta_n) \\
+\end{pmatrix} \quad \text{where } \operatorname{sign}(\theta_i) =
+\begin{cases}
+-1 &amp; \text{if } \theta_i &lt; 0 \\
+0 &amp; \text{if } \theta_i = 0 \\
++1 &amp; \text{if } \theta_i &gt; 0
+\end{cases}
+$</p>
+<p><strong>Equation 4-12: Elastic Net cost function</strong></p>
+<p>$
+J(\boldsymbol{\theta}) = \text{MSE}(\boldsymbol{\theta}) + r \alpha \sum\limits_{i=1}^{n}\left| \theta_i \right| + \dfrac{1 - r}{2} \alpha \sum\limits_{i=1}^{n}{{\theta_i}^2}
+$</p>
+<p><strong>Equation 4-13: Logistic Regression model estimated probability (vectorized form)</strong></p>
+<p>$
+\hat{p} = h_{\boldsymbol{\theta}}(\mathbf{x}) = \sigma(\boldsymbol{\theta}^T \mathbf{x})
+$</p>
+<p><strong>Equation 4-14: Logistic function</strong></p>
+<p>$
+\sigma(t) = \dfrac{1}{1 + \exp(-t)}
+$</p>
+<p><strong>Equation 4-15: Logistic Regression model prediction</strong></p>
+<p>$
+\hat{y} =
+\begin{cases}
+  0 &amp; \text{if } \hat{p} &lt; 0.5, \\
+  1 &amp; \text{if } \hat{p} \geq 0.5.
+\end{cases}
+$</p>
+<p><strong>Equation 4-16: Cost function of a single training instance</strong></p>
+<p>$
+c(\boldsymbol{\theta}) =
+\begin{cases}
+  -\log(\hat{p}) &amp; \text{if } y = 1, \\
+  -\log(1 - \hat{p}) &amp; \text{if } y = 0.
+\end{cases}
+$</p>
+<p><strong>Equation 4-17: Logistic Regression cost function (log loss)</strong></p>
+<p>$
+J(\boldsymbol{\theta}) = -\dfrac{1}{m} \sum\limits_{i=1}^{m}{\left[ y^{(i)} log\left(\hat{p}^{(i)}\right) + (1 - y^{(i)}) log\left(1 - \hat{p}^{(i)}\right)\right]}
+$</p>
+<p><strong>Equation 4-18: Logistic cost function partial derivatives</strong></p>
+<p>$
+\dfrac{\partial}{\partial \theta_j} \text{J}(\boldsymbol{\theta}) = \dfrac{1}{m}\sum\limits_{i=1}^{m}\left(\mathbf{\sigma(\boldsymbol{\theta}}^T \mathbf{x}^{(i)}) - y^{(i)}\right)\, x_j^{(i)}
+$</p>
+<p><strong>Equation 4-19: Softmax score for class k</strong></p>
+<p>$
+s_k(\mathbf{x}) = ({\boldsymbol{\theta}^{(k)}})^T \mathbf{x}
+$</p>
+<p><strong>Equation 4-20: Softmax function</strong></p>
+<p>$
+\hat{p}_k = \sigma\left(\mathbf{s}(\mathbf{x})\right)_k = \dfrac{\exp\left(s_k(\mathbf{x})\right)}{\sum\limits_{j=1}^{K}{\exp\left(s_j(\mathbf{x})\right)}}
+$</p>
+<p><strong>Equation 4-21: Softmax Regression classifier prediction</strong></p>
+<p>$
+\hat{y} = \underset{k}{\operatorname{argmax}} \, \sigma\left(\mathbf{s}(\mathbf{x})\right)_k = \underset{k}{\operatorname{argmax}} \, s_k(\mathbf{x}) = \underset{k}{\operatorname{argmax}} \, \left( ({\boldsymbol{\theta}^{(k)}})^T \mathbf{x} \right)
+$</p>
+<p><strong>Equation 4-22: Cross entropy cost function</strong></p>
+<p>$
+J(\boldsymbol{\Theta}) = - \dfrac{1}{m}\sum\limits_{i=1}^{m}\sum\limits_{k=1}^{K}{y_k^{(i)}\log\left(\hat{p}_k^{(i)}\right)}
+$</p>
+<p><strong>Cross entropy between two discrete probability distributions $p$ and $q$ (page 141):</strong>
+$ H(p, q) = -\sum\limits_{x}p(x) \log q(x) $</p>
+<p><strong>Equation 4-23: Cross entropy gradient vector for class <em>k</em></strong></p>
+<p>$
+\nabla_{\boldsymbol{\theta}^{(k)}} \, J(\boldsymbol{\Theta}) = \dfrac{1}{m} \sum\limits_{i=1}^{m}{ \left ( \hat{p}^{(i)}_k - y_k^{(i)} \right ) \mathbf{x}^{(i)}}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-5">Chapter 5<a class="anchor-link" href="#Chapter-5"> </a></h1><p><strong>Equation 5-1: Gaussian RBF</strong></p>
+<p>$
+{\displaystyle \phi_{\gamma}(\mathbf{x}, \boldsymbol{\ell})} = {\displaystyle \exp({\displaystyle -\gamma \left\| \mathbf{x} - \boldsymbol{\ell} \right\|^2})}
+$</p>
+<p><strong>Equation 5-2: Linear SVM classifier prediction</strong></p>
+<p>$
+\hat{y} = \begin{cases}
+ 0 &amp; \text{if } \mathbf{w}^T \mathbf{x} + b &lt; 0, \\
+ 1 &amp; \text{if } \mathbf{w}^T \mathbf{x} + b \geq 0
+\end{cases}
+$</p>
+<p><strong>Equation 5-3: Hard margin linear SVM classifier objective</strong></p>
+<p>$
+\begin{split}
+&amp;\underset{\mathbf{w}, b}{\operatorname{minimize}}\quad{\frac{1}{2}\mathbf{w}^T \mathbf{w}} \\
+&amp;\text{subject to} \quad t^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b) \ge 1 \quad \text{for } i = 1, 2, \dots, m
+\end{split}
+$</p>
+<p><strong>Equation 5-4: Soft margin linear SVM classifier objective</strong></p>
+<p>$
+\begin{split}
+&amp;\underset{\mathbf{w}, b, \mathbf{\zeta}}{\operatorname{minimize}}\quad{\dfrac{1}{2}\mathbf{w}^T \mathbf{w} + C \sum\limits_{i=1}^m{\zeta^{(i)}}}\\
+&amp;\text{subject to} \quad t^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b) \ge 1 - \zeta^{(i)} \quad \text{and} \quad \zeta^{(i)} \ge 0 \quad \text{for } i = 1, 2, \dots, m
+\end{split}
+$</p>
+<p><strong>Equation 5-5: Quadratic Programming problem</strong></p>
+<p>$
+\begin{split}
+\underset{\mathbf{p}}{\text{Minimize}} \quad &amp; \dfrac{1}{2} \mathbf{p}^T \mathbf{H} \mathbf{p} \quad + \quad \mathbf{f}^T \mathbf{p}  \\
+\text{subject to} \quad &amp; \mathbf{A} \mathbf{p} \le \mathbf{b} \\
+\text{where } &amp;
+\begin{cases}
+  \mathbf{p} &amp; \text{ is an }n_p\text{-dimensional vector (} n_p = \text{number of parameters),}\\
+  \mathbf{H} &amp; \text{ is an }n_p \times n_p \text{ matrix,}\\
+  \mathbf{f} &amp; \text{ is an }n_p\text{-dimensional vector,}\\
+  \mathbf{A} &amp; \text{ is an } n_c \times n_p \text{ matrix (}n_c = \text{number of constraints),}\\
+  \mathbf{b} &amp; \text{ is an }n_c\text{-dimensional vector.}
+\end{cases}
+\end{split}
+$</p>
+<p><strong>Equation 5-6: Dual form of the linear SVM objective</strong></p>
+<p>$
+\begin{split}
+\underset{\mathbf{\alpha}}{\operatorname{minimize}}
+\dfrac{1}{2}\sum\limits_{i=1}^{m}{
+  \sum\limits_{j=1}^{m}{
+  \alpha^{(i)} \alpha^{(j)} t^{(i)} t^{(j)} {\mathbf{x}^{(i)}}^T \mathbf{x}^{(j)}
+  }
+} \quad - \quad \sum\limits_{i=1}^{m}{\alpha^{(i)}}\\
+\text{subject to}\quad \alpha^{(i)} \ge 0 \quad \text{for }i = 1, 2, \dots, m
+\end{split}
+$</p>
+<p><strong>Equation 5-7: From the dual solution to the primal solution</strong></p>
+<p>$
+\begin{split}
+&amp;\hat{\mathbf{w}} = \sum_{i=1}^{m}{\hat{\alpha}}^{(i)}t^{(i)}\mathbf{x}^{(i)}\\
+&amp;\hat{b} = \dfrac{1}{n_s}\sum\limits_{\scriptstyle i=1 \atop {\scriptstyle {\hat{\alpha}}^{(i)} &gt; 0}}^{m}{\left(t^{(i)} - ({\hat{\mathbf{w}}}^T \mathbf{x}^{(i)})\right)}
+\end{split}
+$</p>
+<p><strong>Equation 5-8: Second-degree polynomial mapping</strong></p>
+<p>$
+\phi\left(\mathbf{x}\right) = \phi\left( \begin{pmatrix}
+  x_1 \\
+  x_2
+\end{pmatrix} \right) = \begin{pmatrix}
+  {x_1}^2 \\
+  \sqrt{2} \, x_1 x_2 \\
+  {x_2}^2
+\end{pmatrix}
+$</p>
+<p><strong>Equation 5-9: Kernel trick for a 2^nd^-degree polynomial mapping</strong></p>
+<p>$
+\begin{split}
+\phi(\mathbf{a})^T \phi(\mathbf{b}) &amp; \quad = \begin{pmatrix}
+  {a_1}^2 \\
+  \sqrt{2} \, a_1 a_2 \\
+  {a_2}^2
+  \end{pmatrix}^T \begin{pmatrix}
+  {b_1}^2 \\
+  \sqrt{2} \, b_1 b_2 \\
+  {b_2}^2
+\end{pmatrix} = {a_1}^2 {b_1}^2 + 2 a_1 b_1 a_2 b_2 + {a_2}^2 {b_2}^2 \\
+ &amp; \quad = \left( a_1 b_1 + a_2 b_2 \right)^2 = \left( \begin{pmatrix}
+  a_1 \\
+  a_2
+\end{pmatrix}^T \begin{pmatrix}
+    b_1 \\
+    b_2
+  \end{pmatrix} \right)^2 = (\mathbf{a}^T \mathbf{b})^2
+\end{split}
+$</p>
+<p><strong>In the text about the kernel trick (page 162):</strong>
+[...], then you can replace this dot product of transformed vectors simply by $ ({\mathbf{x}^{(i)}}^T  \mathbf{x}^{(j)})^2 $</p>
+<p><strong>Equation 5-10: Common kernels</strong></p>
+<p>$
+\begin{split}
+\text{Linear:} &amp; \quad K(\mathbf{a}, \mathbf{b}) = \mathbf{a}^T \mathbf{b} \\
+\text{Polynomial:} &amp; \quad K(\mathbf{a}, \mathbf{b}) = \left(\gamma \mathbf{a}^T \mathbf{b} + r \right)^d \\
+\text{Gaussian RBF:} &amp; \quad K(\mathbf{a}, \mathbf{b}) = \exp({\displaystyle -\gamma \left\| \mathbf{a} - \mathbf{b} \right\|^2}) \\
+\text{Sigmoid:} &amp; \quad K(\mathbf{a}, \mathbf{b}) = \tanh\left(\gamma \mathbf{a}^T \mathbf{b} + r\right)
+\end{split}
+$</p>
+<p><strong>Equation 5-11: Making predictions with a kernelized SVM</strong></p>
+<p>$
+\begin{split}
+h_{\hat{\mathbf{w}}, \hat{b}}\left(\phi(\mathbf{x}^{(n)})\right) &amp; = \,\hat{\mathbf{w}}^T \phi(\mathbf{x}^{(n)}) + \hat{b} = \left(\sum_{i=1}^{m}{\hat{\alpha}}^{(i)}t^{(i)}\phi(\mathbf{x}^{(i)})\right)^T \phi(\mathbf{x}^{(n)}) + \hat{b}\\
+ &amp; = \, \sum_{i=1}^{m}{\hat{\alpha}}^{(i)}t^{(i)}\left(\phi(\mathbf{x}^{(i)})^T \phi(\mathbf{x}^{(n)})\right)  + \hat{b}\\
+ &amp; = \sum\limits_{\scriptstyle i=1 \atop {\scriptstyle {\hat{\alpha}}^{(i)} &gt; 0}}^{m}{\hat{\alpha}}^{(i)}t^{(i)} K(\mathbf{x}^{(i)}, \mathbf{x}^{(n)}) + \hat{b}
+\end{split}
+$</p>
+<p><strong>Equation 5-12: Computing the bias term using the kernel trick</strong></p>
+<p>$
+\begin{split}
+\hat{b} &amp; = \dfrac{1}{n_s}\sum\limits_{\scriptstyle i=1 \atop {\scriptstyle {\hat{\alpha}}^{(i)} &gt; 0}}^{m}{\left(t^{(i)} - {\hat{\mathbf{w}}}^T \phi(\mathbf{x}^{(i)})\right)} = \dfrac{1}{n_s}\sum\limits_{\scriptstyle i=1 \atop {\scriptstyle {\hat{\alpha}}^{(i)} &gt; 0}}^{m}{\left(t^{(i)} - {
+ \left(\sum_{j=1}^{m}{\hat{\alpha}}^{(j)}t^{(j)}\phi(\mathbf{x}^{(j)})\right)
+ }^T \phi(\mathbf{x}^{(i)})\right)}\\
+ &amp; = \dfrac{1}{n_s}\sum\limits_{\scriptstyle i=1 \atop {\scriptstyle {\hat{\alpha}}^{(i)} &gt; 0}}^{m}{\left(t^{(i)} -
+\sum\limits_{\scriptstyle j=1 \atop {\scriptstyle {\hat{\alpha}}^{(j)} &gt; 0}}^{m}{
+  {\hat{\alpha}}^{(j)} t^{(j)} K(\mathbf{x}^{(i)},\mathbf{x}^{(j)})
+}
+\right)}
+\end{split}
+$</p>
+<p><strong>Equation 5-13: Linear SVM classifier cost function</strong></p>
+<p>$
+J(\mathbf{w}, b) = \dfrac{1}{2} \mathbf{w}^T \mathbf{w} \quad + \quad C {\displaystyle \sum\limits_{i=1}^{m}max\left(0, t^{(i)} - (\mathbf{w}^T \mathbf{x}^{(i)} + b) \right)}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-6">Chapter 6<a class="anchor-link" href="#Chapter-6"> </a></h1><p><strong>Equation 6-1: Gini impurity</strong></p>
+<p>$
+G_i = 1 - \sum\limits_{k=1}^{n}{{p_{i,k}}^2}
+$</p>
+<p><strong>Equation 6-2: CART cost function for classification</strong></p>
+<p>$
+\begin{split}
+&amp;J(k, t_k) = \dfrac{m_{\text{left}}}{m}G_\text{left} + \dfrac{m_{\text{right}}}{m}G_{\text{right}}\\
+&amp;\text{where }\begin{cases}
+G_\text{left/right} \text{ measures the impurity of the left/right subset,}\\
+m_\text{left/right} \text{ is the number of instances in the left/right subset.}
+\end{cases}
+\end{split}
+$</p>
+<p><strong>Entropy computation example (page 173):</strong></p>
+<p>$ -\frac{49}{54}\log_2(\frac{49}{54}) - \frac{5}{54}\log_2(\frac{5}{54}) $</p>
+<p><strong>Equation 6-3: Entropy</strong></p>
+<p>$
+H_i = -\sum\limits_{k=1 \atop p_{i,k} \ne 0}^{n}{{p_{i,k}}\log_2(p_{i,k})}
+$</p>
+<p><strong>Equation 6-4: CART cost function for regression</strong></p>
+<p>$
+J(k, t_k) = \dfrac{m_{\text{left}}}{m}\text{MSE}_\text{left} + \dfrac{m_{\text{right}}}{m}\text{MSE}_{\text{right}} \quad
+\text{where }
+\begin{cases}
+\text{MSE}_{\text{node}} = \sum\limits_{\scriptstyle i \in \text{node}}(\hat{y}_{\text{node}} - y^{(i)})^2\\
+\hat{y}_\text{node} = \dfrac{1}{m_{\text{node}}}\sum\limits_{\scriptstyle i \in \text{node}}y^{(i)}
+\end{cases}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-7">Chapter 7<a class="anchor-link" href="#Chapter-7"> </a></h1><p><strong>Equation 7-1: Weighted error rate of the $j^\text{th}$ predictor</strong></p>
+<p>$
+r_j = \dfrac{\displaystyle \sum\limits_{\textstyle {i=1 \atop \hat{y}_j^{(i)} \ne y^{(i)}}}^{m}{w^{(i)}}}{\displaystyle \sum\limits_{i=1}^{m}{w^{(i)}}} \quad
+\text{where }\hat{y}_j^{(i)}\text{ is the }j^{\text{th}}\text{ predictor's prediction for the }i^{\text{th}}\text{ instance.}
+$</p>
+<p><strong>Equation 7-2: Predictor weight</strong></p>
+<p>$
+\begin{split}
+\alpha_j = \eta \log{\dfrac{1 - r_j}{r_j}}
+\end{split}
+$</p>
+<p><strong>Equation 7-3: Weight update rule</strong></p>
+<p>$
+\begin{split}
+&amp; \text{ for } i = 1, 2, \dots, m \\
+&amp; w^{(i)} \leftarrow
+\begin{cases}
+w^{(i)} &amp; \text{if }\hat{y_j}^{(i)} = y^{(i)}\\
+w^{(i)} \exp(\alpha_j) &amp; \text{if }\hat{y_j}^{(i)} \ne y^{(i)}
+\end{cases}
+\end{split}
+$</p>
+<p><strong>In the text page 194:</strong></p>
+<p>Then all the instance weights are normalized (i.e., divided by $ \sum_{i=1}^{m}{w^{(i)}} $).</p>
+<p><strong>Equation 7-4: AdaBoost predictions</strong></p>
+<p>$
+\hat{y}(\mathbf{x}) = \underset{k}{\operatorname{argmax}}{\sum\limits_{\scriptstyle j=1 \atop \scriptstyle \hat{y}_j(\mathbf{x}) = k}^{N}{\alpha_j}} \quad \text{where }N\text{ is the number of predictors.}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-8">Chapter 8<a class="anchor-link" href="#Chapter-8"> </a></h1><p><strong>Equation 8-1: Principal components matrix</strong></p>
+<p>$
+\mathbf{V}^T =
+\begin{pmatrix}
+  \mid &amp; \mid &amp; &amp; \mid \\
+  \mathbf{c_1} &amp; \mathbf{c_2} &amp; \cdots &amp; \mathbf{c_n} \\
+  \mid &amp; \mid &amp; &amp; \mid
+\end{pmatrix}
+$</p>
+<p><strong>Equation 8-2: Projecting the training set down to <em>d</em> dimensions</strong></p>
+<p>$
+\mathbf{X}_{d\text{-proj}} = \mathbf{X} \mathbf{W}_d
+$</p>
+<p><strong>Equation 8-3: PCA inverse transformation, back to the original number of dimensions</strong></p>
+<p>$
+\mathbf{X}_{\text{recovered}} = \mathbf{X}_{d\text{-proj}} {\mathbf{W}_d}^T
+$</p>
+<p>$ \sum_{j=1}^{m}{w_{i,j}\mathbf{x}^{(j)}} $</p>
+<p><strong>Equation 8-4: LLE step 1: linearly modeling local relationships</strong></p>
+<p>$
+\begin{split}
+&amp; \hat{\mathbf{W}} = \underset{\mathbf{W}}{\operatorname{argmin}}{\displaystyle \sum\limits_{i=1}^{m}} \left\|\mathbf{x}^{(i)} - \sum\limits_{j=1}^{m}{w_{i,j}}\mathbf{x}^{(j)}\right\|^2\\
+&amp; \text{subject to }
+\begin{cases}
+  w_{i,j}=0 &amp; \text{if }\mathbf{x}^{(j)} \text{ is not one of the }k\text{ c.n. of }\mathbf{x}^{(i)}\\
+  \sum\limits_{j=1}^{m}w_{i,j} = 1 &amp; \text{for }i=1, 2, \dots, m
+\end{cases}
+\end{split}
+$</p>
+<p><strong>In the text page 223:</strong></p>
+<p>[...] then we want the squared distance between $\mathbf{z}^{(i)}$ and $ \sum_{j=1}^{m}{\hat{w}_{i,j}\mathbf{z}^{(j)}} $ to be as small as possible.</p>
+<p><strong>Equation 8-5: LLE step 2: reducing dimensionality while preserving relationships</strong></p>
+<p>$
+\hat{\mathbf{Z}} = \underset{\mathbf{Z}}{\operatorname{argmin}}{\displaystyle \sum\limits_{i=1}^{m}} \left\|\mathbf{z}^{(i)} - \sum\limits_{j=1}^{m}{\hat{w}_{i,j}}\mathbf{z}^{(j)}\right\|^2
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-9">Chapter 9<a class="anchor-link" href="#Chapter-9"> </a></h1><p><strong>Equation 9-1: Rectified linear unit</strong></p>
+<p>$
+h_{\mathbf{w}, b}(\mathbf{X}) = \max(\mathbf{X} \mathbf{w} + b, 0)
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-10">Chapter 10<a class="anchor-link" href="#Chapter-10"> </a></h1><p><strong>Equation 10-1: Common step functions used in Perceptrons</strong></p>
+<p>$
+\begin{split}
+\operatorname{heaviside}(z) =
+\begin{cases}
+0 &amp; \text{if }z &lt; 0\\
+1 &amp; \text{if }z \ge 0
+\end{cases} &amp; \quad\quad
+\operatorname{sgn}(z) =
+\begin{cases}
+-1 &amp; \text{if }z &lt; 0\\
+0 &amp; \text{if }z = 0\\
++1 &amp; \text{if }z &gt; 0
+\end{cases}
+\end{split}
+$</p>
+<p><strong>Equation 10-2: Perceptron learning rule (weight update)</strong></p>
+<p>$
+{w_{i,j}}^{(\text{next step})} = w_{i,j} + \eta (y_j - \hat{y}_j) x_i
+$</p>
+<p><strong>In the text page 266:</strong></p>
+<p>It will be initialized randomly, using a truncated normal (Gaussian) distribution with a standard deviation of $ 2 / \sqrt{\text{n}_\text{inputs}} $.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-11">Chapter 11<a class="anchor-link" href="#Chapter-11"> </a></h1><p><strong>Equation 11-1: Xavier initialization (when using the logistic activation function)</strong></p>
+<p>$
+\begin{split}
+&amp; \text{Normal distribution with mean 0 and standard deviation }
+\sigma = \sqrt{\dfrac{2}{n_\text{inputs} + n_\text{outputs}}}\\
+&amp; \text{Or a uniform distribution between -r and +r, with }
+r = \sqrt{\dfrac{6}{n_\text{inputs} + n_\text{outputs}}}
+\end{split}
+$</p>
+<p><strong>In the text page 278:</strong></p>
+<p>When the number of input connections is roughly equal to the number of output
+connections, you get simpler equations (e.g., $ \sigma = 1 / \sqrt{n_\text{inputs}} $ or $ r = \sqrt{3} / \sqrt{n_\text{inputs}} $).</p>
+<p><strong>Table 11-1: Initialization parameters for each type of activation function</strong></p>
+<ul>
+<li>Logistic uniform: $ r = \sqrt{\dfrac{6}{n_\text{inputs} + n_\text{outputs}}} $</li>
+<li>Logistic normal: $ \sigma = \sqrt{\dfrac{2}{n_\text{inputs} + n_\text{outputs}}} $</li>
+<li>Hyperbolic tangent uniform: $ r = 4 \sqrt{\dfrac{6}{n_\text{inputs} + n_\text{outputs}}} $</li>
+<li>Hyperbolic tangent normal: $ \sigma = 4 \sqrt{\dfrac{2}{n_\text{inputs} + n_\text{outputs}}} $</li>
+<li>ReLU (and its variants) uniform: $ r = \sqrt{2} \sqrt{\dfrac{6}{n_\text{inputs} + n_\text{outputs}}} $</li>
+<li>ReLU (and its variants) normal: $ \sigma = \sqrt{2} \sqrt{\dfrac{2}{n_\text{inputs} + n_\text{outputs}}} $</li>
+</ul>
+<p><strong>Equation 11-2: ELU activation function</strong></p>
+<p>$
+\operatorname{ELU}_\alpha(z) =
+\begin{cases}
+\alpha(\exp(z) - 1) &amp; \text{if } z &lt; 0\\
+z &amp; if z \ge 0
+\end{cases}
+$</p>
+<p><strong>Equation 11-3: Batch Normalization algorithm</strong></p>
+<p>$
+\begin{split}
+1.\quad &amp; \mathbf{\mu}_B = \dfrac{1}{m_B}\sum\limits_{i=1}^{m_B}{\mathbf{x}^{(i)}}\\
+2.\quad &amp; {\mathbf{\sigma}_B}^2 = \dfrac{1}{m_B}\sum\limits_{i=1}^{m_B}{(\mathbf{x}^{(i)} - \mathbf{\mu}_B)^2}\\
+3.\quad &amp; \hat{\mathbf{x}}^{(i)} = \dfrac{\mathbf{x}^{(i)} - \mathbf{\mu}_B}{\sqrt{{\mathbf{\sigma}_B}^2 + \epsilon}}\\
+4.\quad &amp; \mathbf{z}^{(i)} = \gamma \hat{\mathbf{x}}^{(i)} + \beta
+\end{split}
+$</p>
+<p><strong>In the text page 285:</strong></p>
+<p>[...] given a new value $v$, the running average $v$ is updated through the equation:</p>
+<p>$ \hat{v} \gets \hat{v} \times \text{momentum} + v \times (1 - \text{momentum}) $</p>
+<p><strong>Equation 11-4: Momentum algorithm</strong></p>
+<ol>
+<li>$\mathbf{m} \gets \beta \mathbf{m} - \eta \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta})$</li>
+<li>$\boldsymbol{\theta} \gets \boldsymbol{\theta} + \mathbf{m}$</li>
+</ol>
+<p><strong>In the text page 296:</strong></p>
+<p>You can easily verify that if the gradient remains constant, the terminal velocity (i.e., the maximum size of the weight updates) is equal to that gradient multiplied by the learning rate η multiplied by $ \frac{1}{1 - \beta} $.</p>
+<p><strong>Equation 11-5: Nesterov Accelerated Gradient algorithm</strong></p>
+<ol>
+<li>$\mathbf{m} \gets \beta \mathbf{m} - \eta \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta} + \beta \mathbf{m})$</li>
+<li>$\boldsymbol{\theta} \gets \boldsymbol{\theta} + \mathbf{m}$</li>
+</ol>
+<p><strong>Equation 11-6: AdaGrad algorithm</strong></p>
+<ol>
+<li>$\mathbf{s} \gets \mathbf{s} + \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta}) \otimes \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta})$</li>
+<li>$\boldsymbol{\theta} \gets \boldsymbol{\theta} - \eta \, \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta}) \oslash {\sqrt{\mathbf{s} + \epsilon}}$</li>
+</ol>
+<p><strong>In the text page 298-299:</strong></p>
+<p>This vectorized form is equivalent to computing $s_i \gets s_i + \left( \dfrac{\partial J(\boldsymbol{\theta})}{\partial \theta_i} \right)^2$ for each element $s_i$ of the vector $\mathbf{s}$.</p>
+<p><strong>In the text page 299:</strong></p>
+<p>This vectorized form is equivalent to computing $ \theta_i \gets \theta_i - \eta \, \dfrac{\partial J(\boldsymbol{\theta})}{\partial \theta_i} \dfrac{1}{\sqrt{s_i + \epsilon}} $ for all parameters $\theta_i$ (simultaneously).</p>
+<p><strong>Equation 11-7: RMSProp algorithm</strong></p>
+<ol>
+<li>$\mathbf{s} \gets \beta \mathbf{s} + (1 - \beta ) \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta}) \otimes \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta})$</li>
+<li>$\boldsymbol{\theta} \gets \boldsymbol{\theta} - \eta \, \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta}) \oslash {\sqrt{\mathbf{s} + \epsilon}}$</li>
+</ol>
+<p><strong>Equation 11-8: Adam algorithm</strong></p>
+<ol>
+<li>$\mathbf{m} \gets \beta_1 \mathbf{m} - (1 - \beta_1) \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta})$</li>
+<li>$\mathbf{s} \gets \beta_2 \mathbf{s} + (1 - \beta_2) \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta}) \otimes \nabla_\boldsymbol{\theta}J(\boldsymbol{\theta})$</li>
+<li>$\hat{\mathbf{m}} \gets \left(\dfrac{\mathbf{m}}{1 - {\beta_1}^T}\right)$</li>
+<li>$\hat{\mathbf{s}} \gets \left(\dfrac{\mathbf{s}}{1 - {\beta_2}^T}\right)$</li>
+<li>$\boldsymbol{\theta} \gets \boldsymbol{\theta} + \eta \, \hat{\mathbf{m}} \oslash {\sqrt{\hat{\mathbf{s}} + \epsilon}}$</li>
+</ol>
+<p><strong>In the text page 309:</strong></p>
+<p>We typically implement this constraint by computing $\left\| \mathbf{w} \right\|_2$ after each training step
+and clipping $\mathbf{w}$ if needed $ \left( \mathbf{w} \gets \mathbf{w} \dfrac{r}{\left\| \mathbf{w} \right\|_2} \right) $.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-13">Chapter 13<a class="anchor-link" href="#Chapter-13"> </a></h1><p><strong>Equation 13-1: Computing the output of a neuron in a convolutional layer</strong></p>
+<p>$
+z_{i,j,k} = b_k + \sum\limits_{u = 0}^{f_h - 1} \, \, \sum\limits_{v = 0}^{f_w - 1} \, \, \sum\limits_{k' = 0}^{f_{n'} - 1} \, \, x_{i', j', k'} \times w_{u, v, k', k}
+\quad \text{with }
+\begin{cases}
+i' = i \times s_h + u \\
+j' = j \times s_w + v
+\end{cases}
+$</p>
+<p><strong>Equation 13-2: Local response normalization</strong></p>
+<p>$
+b_i = a_i  \left(k + \alpha \sum\limits_{j=j_\text{low}}^{j_\text{high}}{{a_j}^2} \right)^{-\beta} \quad \text{with }
+\begin{cases}
+  j_\text{high} = \min\left(i + \dfrac{r}{2}, f_n-1\right) \\
+  j_\text{low} = \max\left(0, i - \dfrac{r}{2}\right)
+\end{cases}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-14">Chapter 14<a class="anchor-link" href="#Chapter-14"> </a></h1><p><strong>Equation 14-1: Output of a recurrent layer for a single instance</strong></p>
+<p>$
+\mathbf{y}_{(t)} = \phi\left({\mathbf{W}_x}^T{\mathbf{x}_{(t)}} + {{\mathbf{W}_y}^T\mathbf{y}_{(t-1)}} + \mathbf{b} \right)
+$</p>
+<p><strong>Equation 14-2: Outputs of a layer of recurrent neurons for all instances in a mini-batch</strong></p>
+<p>$
+\begin{split}
+\mathbf{Y}_{(t)} &amp; = \phi\left(\mathbf{X}_{(t)} \mathbf{W}_{x} + \mathbf{Y}_{(t-1)} \mathbf{W}_{y} + \mathbf{b} \right) \\
+&amp; = \phi\left(
+\left[\mathbf{X}_{(t)} \quad \mathbf{Y}_{(t-1)} \right]
+  \mathbf{W} + \mathbf{b} \right) \text{ with } \mathbf{W}=
+\left[ \begin{matrix}
+  \mathbf{W}_x\\
+  \mathbf{W}_y
+\end{matrix} \right]
+\end{split}
+$</p>
+<p><strong>In the text page 391:</strong></p>
+<p>Just like in regular backpropagation, there is a first forward pass through the unrolled network (represented by the dashed arrows); then the output sequence is evaluated using a cost function $ C(\mathbf{Y}_{(t_\text{min})}, \mathbf{Y}_{(t_\text{min}+1)}, \dots, \mathbf{Y}_{(t_\text{max})}) $ (where $t_\text{min}$ and $t_\text{max}$ are the first and last output time steps, not counting the ignored outputs)[...]</p>
+<p><strong>Equation 14-3: LSTM computations</strong></p>
+<p>$
+\begin{split}
+\mathbf{i}_{(t)}&amp;=\sigma({\mathbf{W}_{xi}}^T \mathbf{x}_{(t)} + {\mathbf{W}_{hi}}^T \mathbf{h}_{(t-1)} + \mathbf{b}_i)\\
+\mathbf{f}_{(t)}&amp;=\sigma({\mathbf{W}_{xf}}^T \mathbf{x}_{(t)} + {\mathbf{W}_{hf}}^T \mathbf{h}_{(t-1)} + \mathbf{b}_f)\\
+\mathbf{o}_{(t)}&amp;=\sigma({\mathbf{W}_{xo}}^T \mathbf{x}_{(t)} + {\mathbf{W}_{ho}}^T \mathbf{h}_{(t-1)} + \mathbf{b}_o)\\
+\mathbf{g}_{(t)}&amp;=\operatorname{tanh}({\mathbf{W}_{xg}}^T \mathbf{x}_{(t)} + {\mathbf{W}_{hg}}^T \mathbf{h}_{(t-1)} + \mathbf{b}_g)\\
+\mathbf{c}_{(t)}&amp;=\mathbf{f}_{(t)} \otimes \mathbf{c}_{(t-1)} \, + \, \mathbf{i}_{(t)} \otimes \mathbf{g}_{(t)}\\
+\mathbf{y}_{(t)}&amp;=\mathbf{h}_{(t)} = \mathbf{o}_{(t)} \otimes \operatorname{tanh}(\mathbf{c}_{(t)})
+\end{split}
+$</p>
+<p><strong>Equation 14-4: GRU computations</strong></p>
+<p>$
+\begin{split}
+\mathbf{z}_{(t)}&amp;=\sigma({\mathbf{W}_{xz}}^T \mathbf{x}_{(t)} + {\mathbf{W}_{hz}}^T \mathbf{h}_{(t-1)}) \\
+\mathbf{r}_{(t)}&amp;=\sigma({\mathbf{W}_{xr}}^T \mathbf{x}_{(t)} + {\mathbf{W}_{hr}}^T \mathbf{h}_{(t-1)}) \\
+\mathbf{g}_{(t)}&amp;=\operatorname{tanh}\left({\mathbf{W}_{xg}}^T \mathbf{x}_{(t)} + {\mathbf{W}_{hg}}^T (\mathbf{r}_{(t)} \otimes \mathbf{h}_{(t-1)})\right) \\
+\mathbf{h}_{(t)}&amp;=(1-\mathbf{z}_{(t)}) \otimes \mathbf{h}_{(t-1)} + \mathbf{z}_{(t)} \otimes \mathbf{g}_{(t)}
+\end{split}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-15">Chapter 15<a class="anchor-link" href="#Chapter-15"> </a></h1><p><strong>Equation 15-1: Kullback–Leibler divergence</strong></p>
+<p>$
+D_{\mathrm{KL}}(P\|Q) = \sum\limits_{i} P(i) \log \dfrac{P(i)}{Q(i)}
+$</p>
+<p><strong>Equation: KL divergence between the target sparsity <em>p</em> and the actual sparsity <em>q</em></strong></p>
+<p>$
+D_{\mathrm{KL}}(p\|q) = p \, \log \dfrac{p}{q} + (1-p) \log \dfrac{1-p}{1-q}
+$</p>
+<p><strong>In the text page 433:</strong></p>
+<p>One common variant is to train the encoder to output $\gamma = \log\left(\sigma^2\right)$ rather than $\sigma$.
+Wherever we need $\sigma$ we can just compute $ \sigma = \exp\left(\dfrac{\gamma}{2}\right) $.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Chapter-16">Chapter 16<a class="anchor-link" href="#Chapter-16"> </a></h1><p><strong>Equation 16-1: Bellman Optimality Equation</strong></p>
+<p>$
+V^*(s) = \underset{a}{\max}\sum\limits_{s'}{T(s, a, s') [R(s, a, s') + \gamma . V^*(s')]} \quad \text{for all }s
+$</p>
+<p><strong>Equation 16-2: Value Iteration algorithm</strong></p>
+<p>$
+  V_{k+1}(s) \gets \underset{a}{\max}\sum\limits_{s'}{T(s, a, s') [R(s, a, s') + \gamma . V_k(s')]} \quad \text{for all }s
+$</p>
+<p><strong>Equation 16-3: Q-Value Iteration algorithm</strong></p>
+<p>$
+  Q_{k+1}(s, a) \gets \sum\limits_{s'}{T(s, a, s') [R(s, a, s') + \gamma . \underset{a'}{\max}\,{Q_k(s',a')}]} \quad \text{for all } (s,a)
+$</p>
+<p><strong>In the text page 458:</strong></p>
+<p>Once you have the optimal Q-Values, defining the optimal policy, noted $\pi^{*}(s)$, is trivial: when the agent is in state $s$, it should choose the action with the highest Q-Value for that state: $ \pi^{*}(s) = \underset{a}{\operatorname{argmax}} \, Q^*(s, a) $.</p>
+<p><strong>Equation 16-4: TD Learning algorithm</strong></p>
+<p>$
+V_{k+1}(s) \gets (1-\alpha)V_k(s) + \alpha\left(r + \gamma . V_k(s')\right)
+$</p>
+<p><strong>Equation 16-5: Q-Learning algorithm</strong></p>
+<p>$
+Q_{k+1}(s, a) \gets (1-\alpha)Q_k(s,a) + \alpha\left(r + \gamma . \underset{a'}{\max} \, Q_k(s', a')\right)
+$</p>
+<p><strong>Equation 16-6: Q-Learning using an exploration function</strong></p>
+<p>$
+Q(s, a) \gets (1-\alpha)Q(s,a) + \alpha\left(r + \gamma \, \underset{a'}{\max}f(Q(s', a'), N(s', a'))\right)
+$</p>
+<p><strong>Equation 16-7: Target Q-Value</strong></p>
+<p>$
+y(s,a)=r+\gamma\,\max_{a'}\,Q_\boldsymbol\theta(s',a')
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Appendix-A">Appendix A<a class="anchor-link" href="#Appendix-A"> </a></h1><p>Equations that appear in the text:</p>
+<p>$
+\mathbf{H} =
+\begin{pmatrix}
+\mathbf{H'} &amp; 0 &amp; \cdots\\
+0 &amp; 0 &amp; \\
+\vdots &amp; &amp; \ddots
+\end{pmatrix}
+$</p>
+<p>$
+\mathbf{A} =
+\begin{pmatrix}
+\mathbf{A'} &amp; \mathbf{I}_m \\
+\mathbf{0} &amp; -\mathbf{I}_m
+\end{pmatrix}
+$</p>
+<p>$ 1 - \frac{1}{5}^2 - \frac{4}{5}^2 $</p>
+<p>$ 1 - \frac{1}{2}^2 - \frac{1}{2}^2  $</p>
+<p>$ \frac{2}{5} \times $</p>
+<p>$ \frac{3}{5} \times 0 $</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Appendix-C">Appendix C<a class="anchor-link" href="#Appendix-C"> </a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Equations that appear in the text:</p>
+<p>$ (\hat{x}, \hat{y}) $</p>
+<p>$ \hat{\alpha} $</p>
+<p>$ (\hat{x}, \hat{y}, \hat{\alpha}) $</p>
+<p>$
+\begin{cases}
+\frac{\partial}{\partial x}g(x, y, \alpha) = 2x - 3\alpha\\
+\frac{\partial}{\partial y}g(x, y, \alpha) = 2 - 2\alpha\\
+\frac{\partial}{\partial \alpha}g(x, y, \alpha) = -3x - 2y - 1\\
+\end{cases}
+$</p>
+<p>$ 2\hat{x} - 3\hat{\alpha} = 2 - 2\hat{\alpha} = -3\hat{x} - 2\hat{y} - 1 = 0 $</p>
+<p>$ \hat{x} = \frac{3}{2} $</p>
+<p>$ \hat{y} = -\frac{11}{4} $</p>
+<p>$ \hat{\alpha} = 1 $</p>
+<p><strong>Equation C-1: Generalized Lagrangian for the hard margin problem</strong></p>
+<p>$
+\begin{split}
+\mathcal{L}(\mathbf{w}, b, \mathbf{\alpha}) = \frac{1}{2}\mathbf{w}^T \mathbf{w} - \sum\limits_{i=1}^{m}{\alpha^{(i)} \left(t^{(i)}(\mathbf{w}^T \mathbf{x}^{(i)} + b) - 1\right)} \\
+\text{with}\quad \alpha^{(i)} \ge 0 \quad \text{for }i = 1, 2, \dots, m
+\end{split}
+$</p>
+<p><strong>More equations in the text:</strong></p>
+<p>$ (\hat{\mathbf{w}}, \hat{b}, \hat{\mathbf{\alpha}}) $</p>
+<p>$ t^{(i)}(\hat{\mathbf{w}}^T \mathbf{x}^{(i)} + \hat{b}) \ge 1 \quad \text{for } i = 1, 2, \dots, m $</p>
+<p>$ {\hat{\alpha}}^{(i)} \ge 0 \quad \text{for } i = 1, 2, \dots, m $</p>
+<p>$ {\hat{\alpha}}^{(i)} = 0 $</p>
+<p>$ t^{(i)}((\hat{\mathbf{w}})^T \mathbf{x}^{(i)} + \hat{b}) = 1 $</p>
+<p>$ {\hat{\alpha}}^{(i)} = 0 $</p>
+<p><strong>Equation C-2: Partial derivatives of the generalized Lagrangian</strong></p>
+<p>$
+\begin{split}
+\nabla_{\mathbf{w}}\mathcal{L}(\mathbf{w}, b, \mathbf{\alpha}) = \mathbf{w} - \sum\limits_{i=1}^{m}\alpha^{(i)}t^{(i)}\mathbf{x}^{(i)}\\
+\dfrac{\partial}{\partial b}\mathcal{L}(\mathbf{w}, b, \mathbf{\alpha}) = -\sum\limits_{i=1}^{m}\alpha^{(i)}t^{(i)}
+\end{split}
+$</p>
+<p><strong>Equation C-3: Properties of the stationary points</strong></p>
+<p>$
+\begin{split}
+\hat{\mathbf{w}} = \sum_{i=1}^{m}{\hat{\alpha}}^{(i)}t^{(i)}\mathbf{x}^{(i)}\\
+\sum_{i=1}^{m}{\hat{\alpha}}^{(i)}t^{(i)} = 0
+\end{split}
+$</p>
+<p><strong>Equation C-4: Dual form of the SVM problem</strong></p>
+<p>$
+\begin{split}
+\mathcal{L}(\hat{\mathbf{w}}, \hat{b}, \mathbf{\alpha}) = \dfrac{1}{2}\sum\limits_{i=1}^{m}{
+  \sum\limits_{j=1}^{m}{
+  \alpha^{(i)} \alpha^{(j)} t^{(i)} t^{(j)} {\mathbf{x}^{(i)}}^T \mathbf{x}^{(j)}
+  }
+} \quad - \quad \sum\limits_{i=1}^{m}{\alpha^{(i)}}\\
+\text{with}\quad \alpha^{(i)} \ge 0 \quad \text{for }i = 1, 2, \dots, m
+\end{split}
+$</p>
+<p><strong>Some more equations in the text:</strong></p>
+<p>$ \hat{\mathbf{\alpha}} $</p>
+<p>$ {\hat{\alpha}}^{(i)} \ge 0 $</p>
+<p>$ \hat{\mathbf{\alpha}} $</p>
+<p>$ \hat{\mathbf{w}} $</p>
+<p>$ \hat{b} $</p>
+<p>$ \hat{b} = t^{(k)} - {\hat{\mathbf{w}}}^T \mathbf{x}^{(k)} $</p>
+<p><strong>Equation C-5: Bias term estimation using the dual form</strong></p>
+<p>$
+\hat{b} = \dfrac{1}{n_s}\sum\limits_{\scriptstyle i=1 \atop {\scriptstyle {\hat{\alpha}}^{(i)} &gt; 0}}^{m}{\left[t^{(i)} - {\hat{\mathbf{w}}}^T \mathbf{x}^{(i)}\right]}
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Appendix-D">Appendix D<a class="anchor-link" href="#Appendix-D"> </a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Equation D-1: Partial derivatives of $f(x,y)$</strong></p>
+<p>$
+\begin{split}
+\dfrac{\partial f}{\partial x} &amp; = \dfrac{\partial(x^2y)}{\partial x} + \dfrac{\partial y}{\partial x} + \dfrac{\partial 2}{\partial x} = y \dfrac{\partial(x^2)}{\partial x} + 0 + 0 = 2xy \\
+\dfrac{\partial f}{\partial y} &amp; = \dfrac{\partial(x^2y)}{\partial y} + \dfrac{\partial y}{\partial y} + \dfrac{\partial 2}{\partial y} = x^2 + 1 + 0 = x^2 + 1 \\
+\end{split}
+$</p>
+<p><strong>In the text:</strong></p>
+<p>$ \frac{\partial g}{\partial x} = 0 + (0 \times x + y \times 1) = y $</p>
+<p>$ \frac{\partial x}{\partial x} = 1 $</p>
+<p>$ \frac{\partial y}{\partial x} = 0 $</p>
+<p>$ \frac{\partial (u \times v)}{\partial x} = \frac{\partial v}{\partial x} \times u + \frac{\partial u}{\partial x} \times u  $</p>
+<p>$ \frac{\partial g}{\partial x} = 0 + (0 \times x + y \times 1)  $</p>
+<p>$ \frac{\partial g}{\partial x} = y $</p>
+<p><strong>Equation D-2: Derivative of a function <em>h</em>(<em>x</em>) at point <em>x</em>~0~</strong></p>
+<p>$
+\begin{split}
+h'(x) &amp; = \underset{\textstyle x \to x_0}{\lim}\dfrac{h(x) - h(x_0)}{x - x_0}\\
+      &amp; = \underset{\textstyle \epsilon \to 0}{\lim}\dfrac{h(x_0 + \epsilon) - h(x_0)}{\epsilon}
+\end{split}
+$</p>
+<p><strong>Equation D-3: A few operations with dual numbers</strong></p>
+<p>$
+\begin{split}
+&amp;\lambda(a + b\epsilon) = \lambda a + \lambda b \epsilon\\
+&amp;(a + b\epsilon) + (c + d\epsilon) = (a + c) + (b + d)\epsilon \\
+&amp;(a + b\epsilon) \times (c + d\epsilon) = ac + (ad + bc)\epsilon + (bd)\epsilon^2 = ac + (ad + bc)\epsilon\\
+\end{split}
+$</p>
+<p><strong>In the text:</strong></p>
+<p>$ \frac{\partial f}{\partial x}(3, 4) $</p>
+<p>$ \frac{\partial f}{\partial y}(3, 4) $</p>
+<p><strong>Equation D-4: Chain rule</strong></p>
+<p>$
+\dfrac{\partial f}{\partial x} = \dfrac{\partial f}{\partial n_i} \times \dfrac{\partial n_i}{\partial x}
+$</p>
+<p><strong>In the text:</strong></p>
+<p>$ \frac{\partial f}{\partial n_7} = 1 $</p>
+<p>$ \frac{\partial f}{\partial n_5} = \frac{\partial f}{\partial n_7} \times \frac{\partial n_7}{\partial n_5} $</p>
+<p>$ \frac{\partial f}{\partial n_7} = 1 $</p>
+<p>$ \frac{\partial n_7}{\partial n_5} $</p>
+<p>$ \frac{\partial n_7}{\partial n_5} = 1 $</p>
+<p>$ \frac{\partial f}{\partial n_5} = 1 \times 1 = 1 $</p>
+<p>$ \frac{\partial f}{\partial n_4} = \frac{\partial f}{\partial n_5} \times \frac{\partial n_5}{\partial n_4} $</p>
+<p>$ \frac{\partial n_5}{\partial n_4} = n_2 $</p>
+<p>$ \frac{\partial f}{\partial n_4} = 1 \times n_2 = 4 $</p>
+<p>$ \frac{\partial f}{\partial x} = 24 $</p>
+<p>$ \frac{\partial f}{\partial y} = 10 $</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Appendix-E">Appendix E<a class="anchor-link" href="#Appendix-E"> </a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Equation E-1: Probability that the i^th^ neuron will output 1</strong></p>
+<p>$
+p\left(s_i^{(\text{next step})} = 1\right) \, = \, \sigma\left(\frac{\textstyle \sum\limits_{j = 1}^N{w_{i,j}s_j + b_i}}{\textstyle T}\right)
+$</p>
+<p><strong>In the text:</strong></p>
+<p>$ \dot{\mathbf{x}} $</p>
+<p>$ \dot{\mathbf{h}} $</p>
+<p><strong>Equation E-2: Contrastive divergence weight update</strong></p>
+<p>$
+w_{i,j}^{(\text{next step})} = w_{i,j} + \eta(\mathbf{x}\mathbf{h}^T - \dot{\mathbf{x}} \dot {\mathbf{h}}^T)
+$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Glossary">Glossary<a class="anchor-link" href="#Glossary"> </a></h1><p>In the text:</p>
+<p>$\ell _1$</p>
+<p>$\ell _2$</p>
+<p>$\ell _k$</p>
+<p>$ \chi^2 $</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just in case your eyes hurt after all these equations, let's finish with the single most beautiful equation in the world. No, it's not $E = mc²$, it's obviously Euler's identity:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$e^{i\pi}+1=0$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/hands-on-ml2/2020/03/09/book_equations.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/hands-on-ml2/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/hands-on-ml2/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/hands-on-ml2/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Notebooks from Aurélien Geron&#39;s Book - &quot;Hands-On Machine Learning with Scikit-Learn and TensorFlow&quot;</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/hands-on-ml2/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/hands-on-ml2/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
